@@ -228,15 +228,18 @@ public class WGraph_Algo implements weighted_graph_algorithms{
 		try {
 			FileInputStream f = new FileInputStream(file);
 			ObjectInputStream o = new ObjectInputStream(f);
-			init((weighted_graph)o.readObject());
+			Object ob = o.readObject();
 			f.close();
 			o.close();
-			return true;
-			
+			if(ob instanceof weighted_graph)
+			{
+				init((weighted_graph)ob);
+				return true;
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return false;
 	}
 
