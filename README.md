@@ -6,17 +6,29 @@ Main data structure used for implementation is hashmap. For it's unique ability 
 The graph has an inner class, NodeInfo which implements the weighted graph's nodes. Each edge is saved in the two nodes connected by it, using a hashmap for each node which saves for it what nodes it is connected to. The weights of the connections are stored in a hashmap in the weighted graph itself. Inorder to create a unique key for each edge to store it's weight I decided to make the key as a string, which is built in the following way, taking the smaller node's key as the first part of the string followed by the string " | ", ends with the bigger node's key (The nodes with keys 2 and 1 will get the key "1 | 2") and edge's weight as value. The nodes themselves are stored in a hashmap with their unique key as key.
 
 The weighted graph supports the following functions:
+
 getNode - Returns a node with given key.
+
 hasEdge - Returns true if two nodes, given their keys have an edge.
+
 getEdge - Returns the edge's weight of 2 given nodes by their keys.
+
 addNode - Creates a new node with a given key and saves it in the graph.
+
 connect - Connects an edge between two nodes, given their keys and weight of the edge.
+
 getV - Returns a collection containing the nodes of the graph, or with a given key, will return a collection with the node's neighbors.
+
 removeNode - Removes a node with given key.
+
 removeEdge - Removes an edge between two nodes with given keys.
+
 nodesize - Returns how many nodes are in the graph.
+
 edgesize - Return how many edges have been connected.
+
 getMC - Returns how many changes have been made to the graph.
+
 equals - Returns true if a given graph has exactly the same properties as the graph.
 
 Impelementation of the graph algorithms:
@@ -37,10 +49,17 @@ The algorithms that are implemented in my project are:
 Containig weighted graph g that the algorithms will work on.
 
 init - Given a graph, updates g to the new graph.
+
 getgraph - Returns the graph g.
+
 copy - Return a deep copy of g.
+
 isconnected - Return true if g is connected using a version of BFS algorithm that counts how many nodes are connected to the first node in the graph. Returns true if reaches the number of nodes in the graph.
+
 shortestPathDist - Using Dijkstra's Algorithm, returns the shortest distance of two nodes, given their keys.
+
 shortestPath - Using Dijkstra's Algorithm, returns list containing the shortest path of two nodes, given their keys. Using a hashmap to save what is the origin of each node to create that path.
+
 save - Given a path, saves g in a file on that path. Returns true if saving was successful, false otherwise.
+
 load - Given a path to a file containing a weighted graph, loads it and initiats it on the algorithm calss. Returns true if the loading was successful false otherwise.
